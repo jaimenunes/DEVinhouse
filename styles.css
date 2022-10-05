@@ -1,0 +1,12 @@
+body {
+  background-color: rgb(175, 175, 158);
+}
+h1 {
+  font-family: Verdana;
+  font-size: 20px;
+  color: brown;
+  text-align: center;
+}
+p {
+  font-size: 14px;
+}
