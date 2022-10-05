@@ -10,3 +10,9 @@ h1 {
 p {
   font-size: 14px;
 }
+button {
+  padding: 10px;
+  border: solid 2px black;
+  margin-top: 20px;
+  border-radius: 15px;
+}
