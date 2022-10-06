@@ -14,7 +14,9 @@ header {
   overflow: hidden;
   background-color: antiquewhite;
 }
-
+hr{
+  width: 100%;
+}
 nav {
   display: flex;
   justify-content: space-between;
