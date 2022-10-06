@@ -1,15 +1,22 @@
 body {
   background-color: rgb(175, 175, 158);
 }
+
 h1 {
   font-family: Verdana;
   font-size: 20px;
   color: brown;
   text-align: center;
+  background-image: url(./rugby_field.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
+
 p {
   font-size: 14px;
 }
+
 button {
   padding: 10px;
   border: solid 2px black;
