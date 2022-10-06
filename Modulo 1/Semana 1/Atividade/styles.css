@@ -30,6 +30,11 @@ nav {
 
 .menu ul li {
   list-style: none;
+  transition: background-color 0.3s ease-out;
+}
+
+.menu ul li:hover {
+  background-color: #fff;
 }
 
 h1 {
