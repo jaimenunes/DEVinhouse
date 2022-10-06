@@ -1,6 +1,7 @@
 body {
   background-color: rgb(175, 175, 158);
   box-sizing: border-box;
+  margin: 0;
 }
 
 header {
@@ -62,4 +63,14 @@ button {
   border: solid 2px black;
   margin-top: 20px;
   border-radius: 15px;
+}
+
+footer {
+  background-color: antiquewhite;
+  height: 50px;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
 }
