@@ -7,16 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
     <title>DEVinHouse</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         .container {
+            width: 100%;
             display: flex;
-            justify-content: space-evenly;
+            overflow: hidden;
+            justify-content: center;
             min-height: 100vh;
             align-items: center;
-            flex-wrap: wrap;
         }
 
-        img {
+        img:not([alt="rugby icon"]) {
             min-width: 300px;
             height: 500px;
         }
@@ -24,15 +26,37 @@
 </head>
 
 <body>
+    <header>
+        <nav>
+            <div class="brand">
+                <img src="favicon_io/favicon-32x32.png" alt="rugby icon">
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./imagens.html">Imagens</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <h1>Imagens</h1>
     <div class="container">
         <div>
-            <img src="./imagens/rugby_kid.jpg" width="100%">
+            <img src="./imagens/rugby_kid.jpg" width="90%">
         </div>
         <div>
-            <img width="100%"
+            <img src="./rugby_field.jpg" alt="campo" width="90%">
+        </div>
+        <div>
+            <img width="90%"
                 src="https://s2.glbimg.com/5wuAeNKlePlu8409f7u7PY0jlew=/0x0:2984x2064/600x0/smart/filters:gifv():strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2021/3/7/L70lt3QZ6HuZ3TUNyxfg/2021-07-29t082515z-1128894378-sp1eh7t0ne1hu-rtrmadp-3-olympics-2020-rug-w-team7-gpb-000400.jpg">
         </div>
     </div>
+    <footer>
+        <div>
+            Desenvolvido por Jaime Nunes Leal<br> nascido em Florianópolis estudante do DEVinhouse
+        </div>
+    </footer>
 </body>
 
 
