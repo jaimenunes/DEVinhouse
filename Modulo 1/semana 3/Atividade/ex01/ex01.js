@@ -1,12 +1,21 @@
-function procuraMinMax(arr){
+// function procuraMinMax(arr){
+//     if(arr === null || arr == undefined || arr.length == 0){
+//         console.log("Não é possível encontrar")
+//     }else{
+//         let menor = Math.min(...arr)
+//         let maior = Math.max(...arr)
+//         console.log(`O menor valor é ${menor} e o maior valor é ${maior}`)
+//     }    
+// }
+
+const procuraMinMax = (arr) =>{
     if(arr === null || arr == undefined || arr.length == 0){
         console.log("Não é possível encontrar")
     }else{
         let menor = Math.min(...arr)
         let maior = Math.max(...arr)
         console.log(`O menor valor é ${menor} e o maior valor é ${maior}`)
-    }
-    
+    }    
 }
 
 procuraMinMax([56, 65, 64, -3, 23, 42, -15, 65, 14, 32, 78, 70, 47])
