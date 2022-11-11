@@ -1,5 +1,6 @@
 const main = document.getElementById('main')
-const users = async(number) =>{
+
+const getUsers = async(number) =>{
     const response = await fetch(`https://randomuser.me/api/?results=${number}`)
     const data = await response.json()
     try{
@@ -10,28 +11,30 @@ const users = async(number) =>{
     }
 }
 
-async function imprime(){
-    const resultado = await users(10)
-    console.log(resultado)
-    resultado.forEach(element => {
-        let divMain = document.createElement('div')
-        let image = document.createElement('img')
-        image.src = element.picture.large
-        divMain.appendChild(image)
-        let divInfo = document.createElement('div')
-        divInfo.classList.add('info')
-        let pName =  document.createElement('p')
-        pName.innerText = `${element.name.title} ${element.name.first} ${element.name.last}`
-        divInfo.appendChild(pName)
-        let pEmail =  document.createElement('p')
-        pEmail.innerText = element.email
-        divInfo.appendChild(pEmail)
-        let pAdress =  document.createElement('p')
-        pAdress.innerText = `${element.location.street.name} - ${element.location.street.number} ${element.location.state} - ${element.location.city} - ${element.location.country}`
-        divInfo.appendChild(pAdress)
-        divMain.appendChild(divInfo)
-        main.appendChild(divMain)
-    });
+async function user(){
+    const resultado = await getUsers(10)
+    resultado.forEach(user=>{
+        imprime(user)
+    })
 }
 
-imprime()
+function imprime(user){
+    let divMain = document.createElement('div')
+    let divInfo = document.createElement('div')
+    let image = document.createElement('img')
+    let pName =  document.createElement('p')
+    let pEmail =  document.createElement('p')
+    let pAdress =  document.createElement('p')
+    divInfo.classList.add('info')
+    image.src = user.picture.large
+    pName.innerText = `${user.name.title} ${user.name.first} ${user.name.last}`
+    pEmail.innerText = user.email
+    pAdress.innerText = `${user.location.street.name} - ${user.location.street.number} ${user.location.state} - ${user.location.city} - ${user.location.country}`
+    divMain.appendChild(image)
+    divInfo.appendChild(pName)
+    divInfo.appendChild(pEmail)
+    divInfo.appendChild(pAdress)
+    divMain.appendChild(divInfo)
+    main.appendChild(divMain)
+}
+window.addEventListener('load', user)
