@@ -1,5 +1,7 @@
 function getDate() {
   const date = new Date();
-  console.log(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+  const seg =
+    date.getSeconds() < 10 ? `0` + date.getSeconds() : "" + date.getSeconds();
+  console.log(`${date.getHours()}:${date.getMinutes()}:${seg}`);
 }
 setInterval(getDate, 2000);

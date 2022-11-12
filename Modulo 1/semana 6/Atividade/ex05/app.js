@@ -1,4 +1,4 @@
-async function obterClienteNoBancoDeDados(idCliente) {
+function obterClienteNoBancoDeDados(idCliente) {
   try {
     const cliente = { nome: "bruce wayne", id: idCliente };
     return cliente;

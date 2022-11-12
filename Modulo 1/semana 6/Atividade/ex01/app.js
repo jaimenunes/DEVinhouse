@@ -1,7 +1,9 @@
 function sleep(valor) {
-  new Promise((resolve, reject) => {
-    setTimeout(resolve, 3000, valor);
-  }).then((res) => console.log(`O parametro passado foi ${valor}`));
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(valor), 3000);
+  });
 }
 
-sleep("Passou aqui");
+sleep("Passou aqui").then((resultado) => {
+  console.log(resultado);
+});
