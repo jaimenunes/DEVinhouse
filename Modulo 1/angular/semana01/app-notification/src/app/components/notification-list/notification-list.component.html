@@ -1,36 +1,12 @@
 <ntap-header></ntap-header>
-<div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action active mb-2" aria-current="true">
+<div class="list-group" *ngFor="let item of cards">
+  <a href="#" class="list-group-item list-group-item-action  mb-2" aria-current="true">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{ titulo }}</h5>
-      <small>{{ dias }} days ago</small>
+      <h5 class="mb-1">{{ item.titulo }}</h5>
+      <small>{{ item.dias }} days ago</small>
     </div>
-    <p class="mb-1">{{ mensagem }}</p>
-    <small>{{ recebido }}</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action mb-2" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Sua encomenda Chegou</h5>
-      <small> days ago</small>
-    </div>
-    <p class="mb-1">Seu pedido número #12483, acabou de chegar.</p>
-    <small>recebido?</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action mb-2" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Sua encomenda Chegou</h5>
-      <small>2 days ago</small>
-    </div>
-    <p class="mb-1">Seu pedido número #14984823, acabou de chegar.</p>
-    <small>recebido?</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action mb-2" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Sua encomenda Chegou</h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1">Seu pedido número #1229593, acabou de chegar.</p>
-    <small>recebido?</small>
+    <p class="mb-1">{{ item.mensagem }}</p>
+    <small>{{ item.recebido }}</small>
   </a>
 </div>
 <ntap-footer></ntap-footer>

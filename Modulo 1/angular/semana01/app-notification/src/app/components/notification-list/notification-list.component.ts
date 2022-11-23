@@ -6,8 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./notification-list.component.scss'],
 })
 export class NotificationListComponent {
-  titulo: string = 'Sua encomenda chegou';
-  dias: number = 1;
-  mensagem: string = 'Seu pedido número #123, acabou de chegar.';
-  recebido: string = 'Por favor, confirme o recebimento!';
+  cards: any = [
+    {
+      titulo: 'Sua encomenda chegou',
+      ativo: true,
+      dias: 1,
+      mensagem: 'Seu pedido número #123, acabou de chegar',
+      recebido: 'Por favor, confirme o recebimento!',
+    },
+    {
+      titulo: 'Sua encomenda chegou',
+      ativo: false,
+      dias: 3,
+      mensagem: 'Seu pedido número #85959, acabou de chegar',
+      recebido: 'Por favor, confirme o recebimento!',
+    },
+  ];
 }
