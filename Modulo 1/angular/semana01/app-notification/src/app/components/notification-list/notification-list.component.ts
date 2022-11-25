@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./notification-list.component.scss'],
 })
 export class NotificationListComponent {
-  notifications = NOTIFICATIONS
+  notifications = NOTIFICATIONS;
+
+  ler(item: any) {
+    let result = this.notifications.find((nova: any) => nova == item);
+    return (result.lido = !result.lido);
+  }
 }
