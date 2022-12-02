@@ -19,5 +19,7 @@ export class AppComponent {
   onSubmit(){
     this.localStorageService.setUserToLocalStorage(this.userEmail, this.userPassword)
   }
-
+  logarSearch(event:string){
+    console.log(event)
+  }
 }
