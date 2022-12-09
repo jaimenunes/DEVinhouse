@@ -1,10 +1,5 @@
-<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-    <input type="radio" class="btn-check" name="btnradio" id="1" autocomplete="off">
-    <label class="btn btn-outline-secondary" for="1">Todos</label>
-
-    <input type="radio" class="btn-check" name="btnradio" id="2" autocomplete="off">
-    <label class="btn btn-outline-secondary" for="2">Lido</label>
-
-    <input type="radio" class="btn-check" name="btnradio" id="3" autocomplete="off">
-    <label class="btn btn-outline-secondary" for="3">Não lido</label>
+<div *ngFor="let item of valores; index as i" class="btn-group" role="group"
+    aria-label="Basic radio toggle button group">
+    <input type="radio" class="btn-check " name="btnradio" id="{{i}}" autocomplete="off" (click)="filtrar(item)">
+    <label class="btn btn-outline-secondary ms-1" for="{{i}}">{{item}}</label>
 </div>
