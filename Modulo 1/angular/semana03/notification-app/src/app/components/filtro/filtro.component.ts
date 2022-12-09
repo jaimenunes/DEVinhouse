@@ -6,11 +6,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./filtro.component.scss'],
 })
 export class FiltroComponent {
-  @Output() filtrarOutput: EventEmitter<string> = new EventEmitter();
+  @Output() filtrarOutput: EventEmitter<string> = new EventEmitter<string>();
   valores: string[] = ['Todos', 'Lidos', 'Não lidos'];
 
   filtrar(evento: string) {
-    console.log(evento, ' filtro')
     this.filtrarOutput.emit(evento);
   }
 }

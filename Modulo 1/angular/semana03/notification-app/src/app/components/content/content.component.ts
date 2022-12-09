@@ -10,11 +10,29 @@ import { NOTIFICATIONS_MOCK } from 'src/app/utils/notifications-mock';
 })
 export class ContentComponent implements OnInit {
   listaDeNotificacoes: INotificacao[] = [];
-
-  constructor(private route: Router, private activeRoute: ActivatedRoute){}
+  constructor(private route: Router, private activeRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.listaDeNotificacoes = NOTIFICATIONS_MOCK;
+    this.activeRoute.params.subscribe((params) => {
+      let page = params['status'];
+      switch (page) {
+        case 'todos':
+          this.listaDeNotificacoes = NOTIFICATIONS_MOCK;
+          break;
+        case 'lidos':
+          this.listaDeNotificacoes = NOTIFICATIONS_MOCK.filter(
+            (val) => val.lido == true
+          );
+          break;
+        case 'nao-lidos':
+          this.listaDeNotificacoes = NOTIFICATIONS_MOCK.filter(
+            (val) => val.lido == false
+          );
+          break;
+        default:
+          this.route.navigate(['home/todos']);
+      }
+    });
   }
 
   lerNotificacao(indice: number) {
@@ -29,26 +47,17 @@ export class ContentComponent implements OnInit {
     });
   }
 
-  filtrandoNotificacao(btnClicado: string){
-    console.log(btnClicado)
-    switch (btnClicado){
+  filtrandoNotificacao(btnClicado: string) {
+    switch (btnClicado) {
       case 'Todos':
-        this.route.navigate(['home/todos'])
-        this.rendeirizarPagina()
-        break
+        this.route.navigate(['home/todos']);
+        break;
       case 'Lidos':
-        this.route.navigate(['home/lidos'])
-        break
+        this.route.navigate(['home/lidos']);
+        break;
       case 'Não lidos':
-        this.route.navigate(['home/nao-lidos'])
-        break
+        this.route.navigate(['home/nao-lidos']);
+        break;
     }
-
-  }
-
-  rendeirizarPagina(){
-    this.activeRoute.params.subscribe(params =>{
-      console.log(params)
-    })
   }
 }
