@@ -25,4 +25,8 @@ export class ContentComponent implements OnInit {
       return item;
     });
   }
+
+  filtrandoNotificacao(btnClicado: string){
+    console.log(btnClicado)
+  }
 }
