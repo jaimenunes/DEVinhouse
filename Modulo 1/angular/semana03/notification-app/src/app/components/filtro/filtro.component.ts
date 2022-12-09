@@ -10,6 +10,7 @@ export class FiltroComponent {
   valores: string[] = ['Todos', 'Lidos', 'Não lidos'];
 
   filtrar(evento: string) {
+    console.log(evento, ' filtro')
     this.filtrarOutput.emit(evento);
   }
 }
