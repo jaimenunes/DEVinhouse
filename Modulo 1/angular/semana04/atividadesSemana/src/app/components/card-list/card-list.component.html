@@ -1,0 +1,11 @@
+<div class="container d-flex">
+    <div *ngFor="let foto of arrayFotos">
+        <div class="card" style="width: 18rem;">
+            <img [src]="foto.url" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">{{foto.description}}</p>
+            </div>
+        </div>
+
+    </div>
+</div>
