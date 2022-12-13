@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { CaptalizePhillipsPipe } from './pipes/captalize-phillips.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardListComponent } from './components/card-list/card-list.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
-  declarations: [AppComponent, CaptalizePhillipsPipe, NavbarComponent, CardListComponent],
+  declarations: [AppComponent, CaptalizePhillipsPipe, NavbarComponent, CardListComponent, ModalComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
