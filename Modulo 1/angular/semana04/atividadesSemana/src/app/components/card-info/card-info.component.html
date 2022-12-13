@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="card mt-5 text-bg-primary" style="width: 80%;">
+    <div class="card-body">
+      <ng-content select="[title]" class="card-title"></ng-content>
+      <ng-content select="[subtitle]" class="card-subtitle mb-2 text-muted"></ng-content>
+      <hr>
+      <ng-content select="[text]" card="card-text"></ng-content>
+    </div>
+  </div>
+</div>
