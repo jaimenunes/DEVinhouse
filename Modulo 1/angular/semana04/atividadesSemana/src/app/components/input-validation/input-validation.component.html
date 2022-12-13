@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <form class="row g-3 needs-validation w-50" novalidate>
+    <div class="col-md-12" >
+      <label for="validationCustom01" class="form-label">First name</label>
+      <input type="text" class="form-control" id="validationCustom01" [(ngModel)]="name" name="name" required>
+      <div *ngIf="isValid; then valid else invalid"></div>
+    </div>
+    <button type="button" (click)="submit()" class="btn btn-primary">enviar</button>
+  </form>
+  <ng-template  #valid>
+    <div class="success">
+      Looks good!
+    </div>
+  </ng-template>
+  <ng-template   #invalid>
+    <div class="wrong">
+      Enter with a valid name.
+    </div>
+  </ng-template>
+</div>

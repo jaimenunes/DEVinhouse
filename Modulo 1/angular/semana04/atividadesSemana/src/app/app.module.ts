@@ -8,10 +8,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardListComponent } from './components/card-list/card-list.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CardInfoComponent } from './components/card-info/card-info.component';
+import { InputValidationComponent } from './components/input-validation/input-validation.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, CaptalizePhillipsPipe, NavbarComponent, CardListComponent, ModalComponent, CardInfoComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [AppComponent, CaptalizePhillipsPipe, NavbarComponent, CardListComponent, ModalComponent, CardInfoComponent, InputValidationComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
