@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <div class="row align-items-end">
+    <div class="col-8">
+      <div class="mb-3">
+        <label for="tarefa" class="form-label">Tarefa</label>
+        <input type="text" class="form-control" name="tarefa" [(ngModel)]="tarefaAdd" id="tarefa" placeholder="Comprar leite">
+      </div>
+    </div>
+    <div class="col">
+      <div class="mb-3">
+        <button type="button" class="btn btn-primary" (click)="adicionarTarefa()">Adicionar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container ">
+  <div class="row" *ngIf="listaTarefas.length > 0; else vazio ">
+    <table class="table" >
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Tarefas</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tarefa of listaTarefas, let i = index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{tarefa}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<ng-template #vazio>
+  <div class="row mt-5">
+      <div class="col">
+        <h4>Sem tarefas adicionadas</h4>
+      </div>
+</div>
+</ng-template>
