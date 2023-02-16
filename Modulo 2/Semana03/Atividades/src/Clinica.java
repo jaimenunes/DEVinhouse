@@ -9,6 +9,16 @@ public class Clinica {
     String endereco;
     Long codigoClinica;
     private List<Cliente> listaCliente = new ArrayList<Cliente>();
+
+    public Clinica(String nomeDono) {
+        this.nomeDono = nomeDono;
+    }
+
+    public Clinica(String nomeDono, List<Cliente> listaCliente) {
+        this.nomeDono = nomeDono;
+        this.listaCliente = listaCliente;
+    }
+
     public Double calculaIMC(Double peso, Double altura){
         Double resultado = peso / (Math.pow(altura, 2));
         if(resultado < 18.5){
