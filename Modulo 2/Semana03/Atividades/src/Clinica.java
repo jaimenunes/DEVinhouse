@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Clinica {
@@ -7,7 +8,7 @@ public class Clinica {
     String cnpj;
     String endereco;
     Long codigoClinica;
-    List<Cliente> listaCliente = new ArrayList<>();
+    private List<Cliente> listaCliente = new ArrayList<Cliente>();
     public Double calculaIMC(Double peso, Double altura){
         Double resultado = peso / (Math.pow(altura, 2));
         if(resultado < 18.5){
@@ -24,5 +25,8 @@ public class Clinica {
             System.out.println("Obesidade classe III");
         }
         return resultado;
+    }
+
+    public void addCliente(Cliente cliente){
     }
 }
