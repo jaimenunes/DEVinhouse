@@ -1,10 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Clinica {
     String nomeDono;
     String nomeClinica;
     String cnpj;
     String endereco;
     Long codigoClinica;
-
+    List<Cliente> listaCliente = new ArrayList<>();
     public Double calculaIMC(Double peso, Double altura){
         Double resultado = peso / (Math.pow(altura, 2));
         if(resultado < 18.5){
