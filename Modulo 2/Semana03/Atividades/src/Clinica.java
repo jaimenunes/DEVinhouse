@@ -79,6 +79,14 @@ public class Clinica {
         return result.result;
     }
 
+    public List<Cliente> getListaCliente(){
+        for (Cliente cliente: listaCliente
+             ) {
+            System.out.println(cliente.getNome());
+        }
+        return listaCliente;
+    }
+
     @Override
     public String toString() {
         return "Clinica{" +
