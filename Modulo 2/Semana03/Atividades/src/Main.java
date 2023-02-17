@@ -8,6 +8,7 @@ public class Main {
         clinica.addCliente(cliente1);
         clinica.addCliente(cliente2);
         clinica.tratamento(2);
+        clinica.tratamento(1,12.5);
         System.out.println(clinica);
     }
 }

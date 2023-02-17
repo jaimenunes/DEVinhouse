@@ -52,7 +52,28 @@ public class Clinica {
                 result.result = "Tratamento realizado com sucesso, o peso atual é " + pesoAtual;
                 break;
             }else {
-                result.result = "Cliente não encontrado";
+                result.result = "cliente não identificado";
+            }
+        }
+        return result.result;
+    }
+    public String tratamento(Integer id, Double valor){
+        var result = new Object(){String result;};
+        for(int i = 0;i < listaCliente.size(); i++){
+            if (listaCliente.get(i).getId() == id){
+                Double pesoAnterior = listaCliente.get(i).getPeso();
+                if(pesoAnterior - valor > 40){
+                    Double pesoAtual = pesoAnterior - valor;
+                    listaCliente.get(i).setPeso(pesoAtual);
+                    result.result = "Tratamento realizado com sucesso, o peso atual é " + pesoAtual;
+                    break;
+                }else {
+                    result.result = "Não é possível perder tanto peso de forma saúdavel!";
+
+                }
+
+            }else {
+                result.result = "cliente não identificado";
             }
         }
         return result.result;
