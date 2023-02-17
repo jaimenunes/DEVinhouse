@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Clinica {
     private String nomeDono;
@@ -38,5 +39,34 @@ public class Clinica {
     }
 
     public void addCliente(Cliente cliente){
+        listaCliente.add(cliente);
+    }
+
+    public String tratamento(Integer id){
+        var result = new Object(){String result;};
+        for(int i = 0;i < listaCliente.size(); i++){
+            if (listaCliente.get(i).getId() == id){
+                Double pesoAnterior = listaCliente.get(i).getPeso();
+                Double pesoAtual = pesoAnterior - 5;
+                listaCliente.get(i).setPeso(pesoAtual);
+                result.result = "Tratamento realizado com sucesso, o peso atual é " + pesoAtual;
+                break;
+            }else {
+                result.result = "Cliente não encontrado";
+            }
+        }
+        return result.result;
+    }
+
+    @Override
+    public String toString() {
+        return "Clinica{" +
+                "nomeDono='" + nomeDono + '\'' +
+                ", nomeClinica='" + nomeClinica + '\'' +
+                ", cnpj='" + cnpj + '\'' +
+                ", endereco='" + endereco + '\'' +
+                ", codigoClinica=" + codigoClinica +
+                ", listaCliente=" + listaCliente +
+                '}';
     }
 }
