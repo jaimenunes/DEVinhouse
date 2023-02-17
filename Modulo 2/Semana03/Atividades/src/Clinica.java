@@ -3,11 +3,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Clinica {
-    String nomeDono;
-    String nomeClinica;
-    String cnpj;
-    String endereco;
-    Long codigoClinica;
+    private String nomeDono;
+    private String nomeClinica;
+    private String cnpj;
+    private String endereco;
+    private Long codigoClinica;
     private List<Cliente> listaCliente = new ArrayList<Cliente>();
 
     public Clinica(String nomeDono) {
