@@ -1,7 +1,15 @@
 package br.com.bancoDevInhouse.contas;
 
 abstract public class Conta {
-    Double saldo;
+    private Double saldo = 0d;
 
-    protected void obterSaldo(){}
+    protected Double obterSaldo(){
+        return this.saldo;
+    }
+
+    protected void setSaldo(Double valor){
+        this.saldo = valor;
+    }
+
+
 }
