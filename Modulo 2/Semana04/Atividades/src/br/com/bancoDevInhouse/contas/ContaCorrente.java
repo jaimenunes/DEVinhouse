@@ -1,4 +1,6 @@
-import intefaces.Operavel;
+package br.com.bancoDevInhouse.contas;
+
+import br.com.bancoDevInhouse.contas.interfaces.Operavel;
 
 public class ContaCorrente extends Conta implements Operavel {
 
@@ -9,6 +11,6 @@ public class ContaCorrente extends Conta implements Operavel {
 
     @Override
     public void sacar(Double valor) {
-        
+
     }
 }
