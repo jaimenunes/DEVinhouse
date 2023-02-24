@@ -4,6 +4,8 @@ import br.com.bancoDevInhouse.funcionarios.Gerente;
 import br.com.bancoDevInhouse.pessoas.Aluno;
 import br.com.bancoDevInhouse.pessoas.Pessoa;
 import br.com.bancoDevInhouse.produto.Produto;
+import br.com.bancoDevInhouse.teste.TamanhoInvalidoException;
+import br.com.bancoDevInhouse.teste.Teste;
 import br.com.bancoDevInhouse.usuario.Usuario;
 
 public class Main {
@@ -31,5 +33,11 @@ public class Main {
 //        }
 //        Aluno aluno = new Aluno("115511","Jaime", "Nunes");
 //        System.out.println(aluno.registrar());
+        Teste teste = new Teste();
+        try {
+            teste.validar(null,null);
+        }catch (TamanhoInvalidoException | IllegalArgumentException e){
+            System.out.println("Deu problema");
+        }
     }
 }
