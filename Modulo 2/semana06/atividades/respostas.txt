@@ -1,0 +1,62 @@
+ex 09
+
+A modelagem conceitual é uma forma de criar uma estrutura que irá servir para o armazenamento dos dados, ou seja, tem uma forma mais natural.
+-----------------------------------------------------------------------------------------------------------------------------------------
+ex 10 
+
+Os bancos de podem ser dos tipos relacionais e não relacionais.
+
+SGBD - Relacionais
+- Oracle
+- Postgre
+- SqlServe
+- MySql
+- SqlLite
+
+SGBD - Não relacionais
+- NoSql
+- MongDB
+- Redis
+- Cassandra
+-----------------------------------------------------------------------------------------------------------------------------------------
+ex 08
+
+primeira forma normal 
+
+A primeira forma normal visa eliminar atributos multivalorados e atributos compostos.
+
+Passo a passo da 1FN:
+
+Em resumo, para adequar uma tabela que não está na 1FN é necessário realizar os seguintes passos:
+
+Identificar a existência de atributos multivalorados e atributos compostos.
+Criar uma tabela para armazenar os dados do atributo multivalorado
+
+Segunda forma normal
+
+Segunda forma normal, se ela atende todos os requisitos da primeira forma normal e se os registros na tabela, que não são chaves, dependam da chave primária em sua totalidade e não apenas parte dela.
+
+Aqui, vamos eliminar a dependência funcional parcial.
+
+Passo a passo da 2FN:
+
+Em resumo, para adequar uma tabela que não está na 2FN é necessário realizar os seguintes passos:
+
+Identificar se existe na tabela uma chave primária composta.
+Identificar cada atributo não chave que dependa de apenas parte da chave primária composta.
+Criar uma tabela para cada conjunto de atributos não chave que dependam de parte da chave primária da tabela e adicionar estes atributos não chaves na tabela. As chaves primárias nas novas tabelas devem ter como base as chaves primárias da tabela original.
+Remover os atributos não chave da tabela original que dependam de parte da chave primária.
+
+
+terceira forma normal
+
+Se uma tabela está na primeira e segunda forma normal, mas ao analisarmos um registro encontramos um atributo não chave dependente de outro atributo não chave, precisaremos corrigir a tabela para a terceira forma normal.
+
+Aqui basicamente corrigiremos a dependência funcional transitiva.
+
+Passo a passo da 3FN:
+
+Em resumo, para adequar uma tabela que não está na 3FN é necessário realizar os seguintes passos:
+
+Identificar cada grupo de atributos não-chave que dependam de outros atributos não-chave.
+Criar uma tabela para armazenar os atributos (ou conjunto de atributos) não-chave que não estão relacionados à chave primária da tabela original.
