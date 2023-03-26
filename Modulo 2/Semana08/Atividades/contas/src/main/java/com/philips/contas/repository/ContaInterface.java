@@ -9,11 +9,13 @@ public interface ContaInterface {
     void addConta(Conta conta);
     List<Conta> retornaLista();
 
-    void deletaConta(int id);
-    void alteraConta(int id, Conta conta);
+    void deletaConta(Integer id);
+    void alteraConta(Integer id, Conta conta);
 
-    Conta encontraConta(int id);
-    void deposito(int id, Integer valor);
+    Conta encontraConta(Integer id);
+    void deposito(Integer id, Integer valor);
 
-    void saque(int id, Integer valor);
+    void saque(Integer id, Integer valor);
+
+    List<Conta> transferencia(Integer idContaSaque, Integer idContaDeposito, Integer valor);
 }

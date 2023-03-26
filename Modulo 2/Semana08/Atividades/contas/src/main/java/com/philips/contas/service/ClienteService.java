@@ -1,6 +1,7 @@
 package com.philips.contas.service;
 
 import com.philips.contas.model.Cliente;
+import com.philips.contas.model.Conta;
 import com.philips.contas.repository.ClienteInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

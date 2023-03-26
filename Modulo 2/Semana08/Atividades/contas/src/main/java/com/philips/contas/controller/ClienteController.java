@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequestMapping("api/cliente")
+
 @RestController
 public class ClienteController {
     private final ClienteService clienteService;
@@ -39,5 +40,4 @@ public class ClienteController {
     public void alterarCliente(@PathVariable("id") int id, @RequestBody Cliente cliente){
         clienteService.alterarCliente(id, cliente);
     }
-
 }

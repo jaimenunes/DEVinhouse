@@ -3,6 +3,7 @@ package com.philips.contas.controller;
 import com.philips.contas.model.Conta;
 import com.philips.contas.service.ContaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,5 +47,11 @@ public class ContaController {
 
     public void saque(int id, Integer valor){
         contaService.saque(id, valor);
+    }
+    @PutMapping(path = "/transfere/{idContaSaque}/{idContaDeposito}")
+    public List<Conta> transferencia(@PathVariable Integer idContaSaque,
+            @PathVariable Integer idContaDeposito,
+            @RequestParam Integer valor){
+        return contaService.transferencia(idContaSaque, idContaDeposito,valor);
     }
 }

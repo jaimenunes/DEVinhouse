@@ -12,8 +12,8 @@ import java.util.List;
 @Setter
 @ToString
 public class Cliente {
-    private int id;
-    private static int IdCounter = 1;
+    private Integer id;
+    private static Integer IdCounter = 1;
 
     @NotBlank
     private final String nome;

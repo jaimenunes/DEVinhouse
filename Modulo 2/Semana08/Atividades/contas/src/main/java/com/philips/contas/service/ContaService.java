@@ -24,22 +24,26 @@ public class ContaService {
     public List<Conta> retornaLista(){
         return contaInterface.retornaLista();
     }
-    public void deletaConta(int id){
+    public void deletaConta(Integer id){
         contaInterface.deletaConta(id);
     }
-    public void alteraConta(int id,Conta conta){
+    public void alteraConta(Integer id,Conta conta){
         contaInterface.alteraConta(id, conta);
     }
 
-    public Conta encontraConta(int id){
+    public Conta encontraConta(Integer id){
         return contaInterface.encontraConta(id);
     }
 
-    public void deposito(int id, Integer valor){
+    public void deposito(Integer id, Integer valor){
         contaInterface.deposito(id, valor);
     }
 
-    public void saque(int id, Integer valor){
+    public void saque(Integer id, Integer valor){
         contaInterface.saque(id, valor);
+    }
+
+    public List<Conta> transferencia(Integer idContaSaque, Integer idContaDeposito, Integer valor){
+        return contaInterface.transferencia(idContaSaque, idContaDeposito, valor);
     }
 }
