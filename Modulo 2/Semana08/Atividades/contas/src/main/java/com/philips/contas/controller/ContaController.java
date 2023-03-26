@@ -26,14 +26,17 @@ public class ContaController {
     public List<Conta> retornaLista(){
         return contaService.retornaLista();
     }
-    public void deletaConta(int id){
+    @DeleteMapping(path = "{id}")
+    public void deletaConta(@PathVariable("id") int id){
         contaService.deletaConta(id);
     }
-    public void alteraConta(int id,Conta conta){
+    @PutMapping(path = "{id}")
+    public void alteraConta(@PathVariable("id") int id, @RequestBody Conta conta){
         contaService.alteraConta(id, conta);
     }
 
-    public Conta encontraConta(int id){
+    @GetMapping(path = "{id}")
+    public Conta encontraConta(@PathVariable("id") int id){
         return contaService.encontraConta(id);
     }
 

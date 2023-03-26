@@ -31,6 +31,7 @@ public class ClienteRepository implements ClienteInterface {
     @Override
     public void alterarCliente(int id, Cliente cliente) {
         int index = id - 1;
+        cliente.setId(id);
         listaClientes.set(index, cliente);
     }
 }

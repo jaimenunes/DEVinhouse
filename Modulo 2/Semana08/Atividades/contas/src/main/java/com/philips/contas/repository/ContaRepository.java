@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public class ContaRepository implements ContaInterface{
-    private final List<Conta> listaContas = new ArrayList<>();
+    private static List<Conta> listaContas = new ArrayList<>();
 
     @Override
     public void addConta(Conta conta){
@@ -27,6 +27,7 @@ public class ContaRepository implements ContaInterface{
     @Override
     public void alteraConta(int id,Conta conta){
         int index = id -1;
+        conta.setId(id);
         listaContas.set(index, conta);
     }
 

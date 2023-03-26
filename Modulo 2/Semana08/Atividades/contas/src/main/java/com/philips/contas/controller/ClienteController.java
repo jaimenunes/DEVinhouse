@@ -27,13 +27,16 @@ public class ClienteController {
     public List<Cliente> retornaLista() {
         return clienteService.retornaLista();
     }
-    public Cliente encontrarCliente(int id){
+    @GetMapping(path = "{id}")
+    public Cliente encontrarCliente(@PathVariable("id") int id){
         return clienteService.encontrarCliente(id);
     }
-    public void deletarCliente(int id){
+    @DeleteMapping(path = "{id}")
+    public void deletarCliente(@PathVariable("id") int id){
         clienteService.deletarCliente(id);
     }
-    public void alterarCliente(int id, Cliente cliente){
+    @PutMapping(path = "{id}")
+    public void alterarCliente(@PathVariable("id") int id, @RequestBody Cliente cliente){
         clienteService.alterarCliente(id, cliente);
     }
 

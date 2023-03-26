@@ -13,7 +13,7 @@ import java.util.List;
 @ToString
 public class Cliente {
     private int id;
-    private static int IdCounter = 0;
+    private static int IdCounter = 1;
 
     @NotBlank
     private final String nome;

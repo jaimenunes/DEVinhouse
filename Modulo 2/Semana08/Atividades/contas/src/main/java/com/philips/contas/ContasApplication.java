@@ -30,11 +30,11 @@ public class ContasApplication {
 		ContaController contaController = new ContaController(contaService);
 		Conta conta1 = new Conta(novoCliente);
 		contaController.addConta(conta1);
-		contaController.deposito(1, 100);
-		contaController.saque(1, 50);
-		contaController.saque(1, 70);
-		List<Cliente> listaClientes = clienteRepository.retornaLista();
-		System.out.println(listaClientes);
+//		contaController.deposito(1, 100);
+//		contaController.saque(1, 50);
+//		contaController.saque(1, 70);
+//		List<Cliente> listaClientes = clienteRepository.retornaLista();
+//		System.out.println(listaClientes);
 		List<Conta> listaContas = contaRepository.retornaLista();
 		System.out.println(listaContas);
 	}

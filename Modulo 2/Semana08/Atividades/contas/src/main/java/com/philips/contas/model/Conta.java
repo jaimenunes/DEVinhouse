@@ -13,7 +13,7 @@ import java.util.UUID;
 @ToString
 public class Conta {
     private int id;
-    private static int IdCounter = 0;
+    private static int IdCounter = 1;
     private Integer saldo = 0;
     private Cliente cliente;
     public Conta(@JsonProperty("cliente") Cliente cliente){
