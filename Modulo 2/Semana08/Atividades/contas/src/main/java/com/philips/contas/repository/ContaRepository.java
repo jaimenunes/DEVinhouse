@@ -12,7 +12,7 @@ public class ContaRepository implements ContaInterface{
 
     @Override
     public void addConta(Conta conta){
-        listaContas.add(conta);
+            listaContas.add(conta);
     }
 
     @Override
