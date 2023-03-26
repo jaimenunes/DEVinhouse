@@ -5,6 +5,8 @@ import com.philips.contas.repository.ClienteInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClienteService {
     private final ClienteInterface clienteInterface;
@@ -14,6 +16,10 @@ public class ClienteService {
     }
     public void addCliente(Cliente cliente){
         clienteInterface.salvarCliente(cliente);
+    }
+
+    public List<Cliente> retornaLista() {
+        return clienteInterface.retornaLista();
     }
 
     public Cliente encontrarCliente(int id) {

@@ -21,27 +21,22 @@ public class ContasApplication {
 		ClienteRepository clienteRepository = new ClienteRepository();
 		ClienteService clienteService = new ClienteService(clienteRepository);
 		ClienteController clienteController = new ClienteController(clienteService);
-
 		Cliente novoCliente = new Cliente("João da Silva", "12345678901");
 		Cliente novoCliente1 = new Cliente("Pedro da Silva", "12345678901");
 		clienteController.addCliente(novoCliente);
 		clienteController.addCliente(novoCliente1);
-
 		ContaRepository contaRepository = new ContaRepository();
 		ContaService contaService = new ContaService(contaRepository);
 		ContaController contaController = new ContaController(contaService);
-
 		Conta conta1 = new Conta(novoCliente);
 		contaController.addConta(conta1);
 		contaController.deposito(1, 100);
 		contaController.saque(1, 50);
-		contaController.saque(1, 7 	0);
-
+		contaController.saque(1, 70);
 		List<Cliente> listaClientes = clienteRepository.retornaLista();
 		System.out.println(listaClientes);
 		List<Conta> listaContas = contaRepository.retornaLista();
 		System.out.println(listaContas);
-
 	}
 
 }
