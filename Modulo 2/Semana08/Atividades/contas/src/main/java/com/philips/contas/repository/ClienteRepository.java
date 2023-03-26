@@ -11,7 +11,7 @@ public class ClienteRepository implements ClienteInterface {
     private static List<Cliente> listaClientes= new ArrayList<Cliente>();
     @Override
     public void salvarCliente(Cliente cliente) {
-        listaClientes.add(new Cliente(cliente.getNome(), cliente.getCPF()));
+        listaClientes.add(cliente);
     }
     @Override
     public List<Cliente> retornaLista() {
