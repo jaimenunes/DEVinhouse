@@ -5,9 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-    <p>Nome: Notebook</p>
-    <p>Descrição: I7</p>
-    <p>data: 03/04/2023</p>
-    <p>2000</p>
+<div>
+        <div th:text="${produto.nome}"></div>
+        <div th:text="${produto.descricao}"></div>
+        <div th:text="${produto.preco}"></div>
+</div>
 </body>
 </html>
