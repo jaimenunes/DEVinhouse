@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Produtos</title>
+</head>
+<body>
+<div>
+    <div th:each="produto: ${produtos}">
+        <div th:text="${produto.nome}"></div>
+        <div th:text="${produto.descricao}"></div>
+        <div th:text="${produto.preco}"></div>
+    </div>
+</div>
+</body>
+</html>
