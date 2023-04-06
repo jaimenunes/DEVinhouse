@@ -2,21 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Criar Produto</title>
+    <title>Atualizar</title>
 </head>
 <body>
-<form action="#"
-      th:action="@{/produto}"
-      th:object="${produto}"
-      method="post">
+  <form
+    action="#"
+    th:action="@{/produto/atualizar}"
+    th:object="${produtoAtualizarDTO}"
+    method="post"
+  >
+    <label for="id" >ID</label>
+    <input type="text" th:field="*{id}" th:value="${id}" readonly id="id" placeholder="ID">
     <label for="name" >Name</label>
     <input type="text" th:field="*{nome}"  id="name" placeholder="Name">
     <label for="descricao" >Descrição</label>
     <input type="text" th:field="*{descricao}"  id="descricao" placeholder="Descrição">
     <label for="preco" >Preço</label>
     <input type="text" th:field="*{preco}"  id="preco" placeholder="Preço">
-    <input type="submit" value="Add Produto">
+    <input type="submit" value="Atualizar Produto">
 
-</form>
+  </form>
 </body>
 </html>
