@@ -2,44 +2,38 @@ package com.loja.produtos.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private final DataSource dataSource;
+public class SecurityConfig {
 
-    public SecurityConfig(DataSource dataSource){
-        this.dataSource = dataSource;
-    }
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception{
-        http.authorizeRequests((authz) -> authz.anyRequest().authenticated() // precisa estar autenticado para
-                // realizar qualquer request
-        ).formLogin(form ->
-                form.loginPage("/login").permitAll()
-        ).logout(logout ->
-                logout.logoutUrl("/logout")
-        );
-    }
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder());
-        users(dataSource);
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+        http
+                .authorizeHttpRequests((authz) ->
+                        authz.requestMatchers("/","/produto/all").permitAll()
+                                .anyRequest().authenticated()
+                )
+                .formLogin(login ->
+                    login.loginPage("/login")
+                            .defaultSuccessUrl("/produto/all", true)
+                            .permitAll()
+                )
+                .logout(logout ->
+                    logout.logoutUrl("logout").permitAll()
+                );
+        return http.build();
     }
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -53,7 +47,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .password(passwordEncoder().encode("pass"))
                 .roles("admin")
                 .build();
-        JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
-        return users;
+        return new InMemoryUserDetailsManager(user);
     }
 }
