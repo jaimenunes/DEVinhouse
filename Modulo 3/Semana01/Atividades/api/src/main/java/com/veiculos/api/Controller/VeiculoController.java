@@ -4,6 +4,7 @@ import com.veiculos.api.Controller.Requests.VeiculoRequest;
 import com.veiculos.api.Controller.Responses.VeiculoResponse;
 import com.veiculos.api.Model.Veiculo;
 import com.veiculos.api.Service.VeiculoService;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,20 +17,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/veiculos")
-@CrossOrigin
+@Slf4j
 public class VeiculoController {
     @Autowired
     private VeiculoService veiculoService;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    private ModelMapper modelMapper = new ModelMapper(); // criando instancia pq só será usado aquo
 
     @PostMapping
-    public ResponseEntity<VeiculoResponse> cadastraVeiculo(@RequestBody VeiculoRequest request){
+    public ResponseEntity<VeiculoResponse> adicionar(@RequestBody VeiculoRequest request) {
         Veiculo veiculo = modelMapper.map(request, Veiculo.class);
         veiculo = veiculoService.inserir(veiculo);
-        VeiculoResponse response = modelMapper.map(veiculo, VeiculoResponse.class);
-        return ResponseEntity.created(URI.create(response.getPlaca())).body(response);
+        var resp = modelMapper.map(veiculo, VeiculoResponse.class);
+        return ResponseEntity.created(URI.create(veiculo.getPlaca())).body(resp);
     }
 
     @GetMapping

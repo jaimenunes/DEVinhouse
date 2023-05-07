@@ -11,5 +11,4 @@ public class VeiculoRequest {
     private String tipoVeiculo;
     private String cor;
     private Integer anoDeFabricacao;
-    private Integer qtdMultas;
 }

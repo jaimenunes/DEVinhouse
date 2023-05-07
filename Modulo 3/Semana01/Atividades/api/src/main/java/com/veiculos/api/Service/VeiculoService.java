@@ -17,8 +17,8 @@ public class VeiculoService {
     private VeiculoRepository veiculoRepository;
 
     public Veiculo inserir(Veiculo veiculo) {
-        boolean placaCadastrada = veiculoRepository.existsById(veiculo.getPlaca());
-        if (placaCadastrada) {
+        boolean existe = veiculoRepository.existsById(veiculo.getPlaca());
+        if (existe) {
             throw new RegistroExistenteException();
         }
         veiculo = veiculoRepository.save(veiculo);
