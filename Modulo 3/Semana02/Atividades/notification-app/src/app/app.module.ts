@@ -15,14 +15,11 @@ import { NotificationAddComponent } from './components/notification-add/notifica
     HeaderComponent,
     ContentComponent,
     FooterComponent,
-    NotificationAddComponent
+    NotificationAddComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, HttpClientModule, FormsModule],
+  exports: [NotificationAddComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
