@@ -3,23 +3,30 @@ import { ContentComponent } from './content.component';
 import { NotificationService } from 'src/app/services/notification.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AppModule } from 'src/app/app.module';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 describe('ContentComponent', () => {
   let component: ContentComponent;
   let fixture: ComponentFixture<ContentComponent>;
-  let service: NotificationService;
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, AppModule],
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [ContentComponent],
-      providers: [NotificationService],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
-    service = TestBed.inject(NotificationService);
     fixture = TestBed.createComponent(ContentComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('Should create component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('ngOnInit - Should call carregarNotificacoes method with success', () => {
+    const spy = spyOn(component, 'carregarNotificacoes');
+    component.ngOnInit();
+    expect(spy).toHaveBeenCalled();
   });
 });
