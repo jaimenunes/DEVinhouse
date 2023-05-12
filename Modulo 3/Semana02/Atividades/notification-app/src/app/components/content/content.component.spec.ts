@@ -58,8 +58,9 @@ describe('ContentComponent', () => {
 
   it('removerNotificacao - Should call atualizarLista method with success', () => {
     component.listaDeNotificacoes = MOCK_NOTIFICATIONS
-    spyOn(notificationService, 'removeNotification').and.returnValue(of({}))
     spyOn(component, 'atualizarLista').and.callThrough()
+    spyOn(notificationService, 'removeNotification').and.returnValue(of({}))
+
     spyOn(notificationService, 'getNotificationsApi').and.returnValue(of([]))
 
     component.removerNotificacao(1)
