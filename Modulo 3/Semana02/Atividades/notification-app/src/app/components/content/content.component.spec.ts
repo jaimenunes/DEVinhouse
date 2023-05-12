@@ -7,6 +7,7 @@ import { AppModule } from 'src/app/app.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
+import { animate } from '@angular/animations';
 
 describe('ContentComponent', () => {
   let component: ContentComponent;
@@ -35,7 +36,7 @@ describe('ContentComponent', () => {
   });
 
   it('lerNotificacao - Should call atualizarLista method with success', () =>{
-    let notification = MOCK_NOTIFICATION
+    let notification = MOCK_NOTIFICATIONS
     spyOn(notificationService, 'editNotificationApi').and.returnValue(of({}))
     const spyLista = spyOn(component, 'atualizarLista');
     component.lerNotificacao(notification[0])
@@ -49,14 +50,24 @@ describe('ContentComponent', () => {
   })
 
   it('carregarNotificacoes - Should return values to listaDeNotificacoes with success', () => {
-    spyOn(notificationService, 'getNotificationsApi').and.returnValue(of(MOCK_NOTIFICATION))
+    spyOn(notificationService, 'getNotificationsApi').and.returnValue(of(MOCK_NOTIFICATIONS))
     component.carregarNotificacoes()
     expect(component.listaDeNotificacoes.length).toBeGreaterThan(0)
     expect(component.listaDeNotificacoes[0].aplicativo).toEqual('Ifood')
   })
 
+  it('removerNotificacao - Should call atualizarLista method with success', () => {
+    component.listaDeNotificacoes = MOCK_NOTIFICATIONS
+    spyOn(notificationService, 'removeNotification').and.returnValue(of({}))
+    spyOn(component, 'atualizarLista').and.callThrough()
+    spyOn(notificationService, 'getNotificationsApi').and.returnValue(of([]))
 
-  const MOCK_NOTIFICATION: INotificacao[] = [{
+    component.removerNotificacao(1)
+    expect(component.listaDeNotificacoes.length).toEqual(0)
+  })
+
+
+  const MOCK_NOTIFICATIONS: INotificacao[] = [{
       aplicativo: 'Ifood',
       titulo: "Cupom",
       descricao: 'Receba 10% de desconto',
