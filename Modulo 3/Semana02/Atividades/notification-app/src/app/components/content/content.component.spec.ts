@@ -42,12 +42,20 @@ describe('ContentComponent', () => {
     expect(spyLista).toHaveBeenCalled()
   })
 
+  it('atualizarLista - Should call carregarNotificacoes method with success', () => {
+    const spyCarregar = spyOn(component, 'carregarNotificacoes')
+    component.atualizarLista()
+    expect(spyCarregar).toHaveBeenCalled()
+  })
+
+
   const MOCK_NOTIFICATION: INotificacao = {
       aplicativo: 'Ifood',
       titulo: "Cupom",
       descricao: 'Receba 10% de desconto',
       tempoPublicacao: "5 dias",
       imagem: "none",
-      lido: false
+      lido: false,
+      id: 1
   }
 });
