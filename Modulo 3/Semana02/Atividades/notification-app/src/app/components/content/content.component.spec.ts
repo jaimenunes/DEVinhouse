@@ -38,7 +38,7 @@ describe('ContentComponent', () => {
     let notification = MOCK_NOTIFICATION
     spyOn(notificationService, 'editNotificationApi').and.returnValue(of({}))
     const spyLista = spyOn(component, 'atualizarLista');
-    component.lerNotificacao(notification)
+    component.lerNotificacao(notification[0])
     expect(spyLista).toHaveBeenCalled()
   })
 
@@ -48,8 +48,15 @@ describe('ContentComponent', () => {
     expect(spyCarregar).toHaveBeenCalled()
   })
 
+  it('carregarNotificacoes - Should return values to listaDeNotificacoes with success', () => {
+    spyOn(notificationService, 'getNotificationsApi').and.returnValue(of(MOCK_NOTIFICATION))
+    component.carregarNotificacoes()
+    expect(component.listaDeNotificacoes.length).toBeGreaterThan(0)
+    expect(component.listaDeNotificacoes[0].aplicativo).toEqual('Ifood')
+  })
 
-  const MOCK_NOTIFICATION: INotificacao = {
+
+  const MOCK_NOTIFICATION: INotificacao[] = [{
       aplicativo: 'Ifood',
       titulo: "Cupom",
       descricao: 'Receba 10% de desconto',
@@ -57,5 +64,5 @@ describe('ContentComponent', () => {
       imagem: "none",
       lido: false,
       id: 1
-  }
+  }]
 });
