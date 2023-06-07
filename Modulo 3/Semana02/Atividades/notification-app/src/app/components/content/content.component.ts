@@ -45,7 +45,7 @@ export class ContentComponent implements OnInit {
 
     // Chamada com observable
     this.notificationService
-      .getNotificationsApi()
+      .getNotifications()
       .subscribe((resposta: INotificacao[]) => {
         this.listaDeNotificacoes = resposta;
       });
