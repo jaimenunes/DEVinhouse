@@ -1,4 +1,5 @@
---ex 01---
+-- ex 01---
+
 CREATE TABLE PRODUTO(
  ID  NUMBER PRIMARY KEY,
  DESCRICAO VARCHAR2(50) NOT NULL,
@@ -20,7 +21,7 @@ INSERT INTO PRODUTO (ID, DESCRICAO, STATUS, CADASTRO, QUANTIDADE_ESTOQUE) VALUES
 
 COMMIT;
 
---ex 02 --
+-- ex 02 --
 
 CREATE TABLE produtoPreco(
      ID  NUMBER PRIMARY KEY,
@@ -78,3 +79,47 @@ INSERT INTO ProdutoPreco (ID, IDProduto, Valor, Status, Cadastro)
 VALUES (15, 5, 7.25, 1, TO_DATE('2023-06-08 04:00:00', 'YYYY-MM-DD HH24:MI:SS'));
 
 commit;
+
+-- ex 03--
+
+select P.ID as "ID produto",PP.ID as "ID preco produto", P.Descricao, PP.valor, TO_CHAR(PP.cadastro, 'mm/yyyy') as "data cadastro"  from PRODUTO P inner join PRODUTOPRECO PP on P.id = PP.id;
+
+
+-- ex 04 --
+
+select SUM(valor) as "soma", 
+case
+    when SUM(valor) < 150.00 then 'soma menor que 150.00'
+    when SUM(valor) < 500.00 then 'soma menor que 500.00'
+    else 'soma maior que 500.00'
+end as "texto soma"
+from produtopreco;
+
+-- ex 05 --
+
+select P.*, pp.* from produto p LEFT JOIN produtopreco pp on p.id = pp.id where pp.id is null;
+
+-- ex 06 --
+
+begin
+    for i in 1..3 loop
+        update produtoPreco
+        set valor = valor + (valor * 0.15)
+        where valor > 100;
+    end loop;
+end;
+
+-- ex 07 --
+
+DECLARE
+    v_status VARCHAR2(10);
+BEGIN
+    FOR p IN (SELECT id, status from produto) LOOP
+        IF P.status = 1 THEN
+            v_status := 'ativo';
+        ELSE
+            v_status := 'inativo';
+        END IF;
+        dbms_output.put_line('ID: ' || p.id || ', status: ' || v_status);
+    END LOOP;
+END;
